@@ -40,6 +40,13 @@
         }
     }
 
+    @media (max-width: 1024px) {
+        .container {
+            display: flex;
+            max-width: 80%;
+        }
+    }
+
     @media (max-width: 640px) {
         .container {
             display: block;

@@ -1,12 +1,13 @@
 @use 'variaveis';
 @use 'hero';
 @use 'event';
+@use 'header';
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Alkatra', system-ui;
     list-style: none;
     color: variaveis.$corTexto;
 }
@@ -19,6 +20,7 @@
 
 body {
     overflow-x: hidden;
+    background-color: variaveis.$black;
 }
 
 @mixin text($fontSize: 16px) {
@@ -27,62 +29,26 @@ body {
     color: variaveis.$corTexto;
 }
 
-@mixin title($fontSize: 40px) {
+@mixin title($fontSize: 38px) {
     @include text($fontSize);
     color: variaveis.$corTexto;
 }
 
-.text--big {
-    @include text(18px);
-
-    @media (max-width: 768px) {
-        @include text(15px);
-    }
-}
-
 .text {
     @include text;
+    color: variaveis.$black;
 
     @media (max-width: 768px) {
-        @include text(14px);
+        @include text(16px);
     }
 }
 
-.text--small {
-    @include text(12px);
-
-    @media (max-width: 768px) {
-        @include text(11px);
-    }
-}
-
-.link-text {
-    @include text(18px);
-    color: variaveis.$corTextoSecundario;
-    text-decoration: underline;
-}
-
-.title--big {
-    @include title(44px);
-
-    @media (max-width: 768px) {
-        @include title(26px);
-    }
-}
-
-.title {
-    @include title;
+.title--three {
+    @include title(30px);
+    margin-bottom: 20px;
 
     @media (max-width: 768px) {
         @include title(24px);
-    }
-}
-
-.title--small {
-    @include title(28px);
-
-    @media (max-width: 768px) {
-        @include title(22px);
     }
 } 
 
@@ -91,7 +57,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 60px;
+    height: 40px;
     font-size: 18px;
     color: variaveis.$corTextoSecundario;
     background-color: variaveis.$corDeFundoBotaoPrimario;
@@ -99,6 +65,7 @@ body {
     border-radius: 4px;
     text-decoration: none;
     padding: 8px 14px;
+    cursor: pointer;
     letter-spacing: 1px;
     border: 1px solid  variaveis.$corDeFundoBotaoPrimario;
 
@@ -122,55 +89,6 @@ body {
         &:hover {
             background-color: variaveis.$corTextoSecundario;
             color: variaveis.$corDeFundo;
-        }
-    }
-}
-
-.image-text-section {
-    padding: 5.6vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-
-    @media (max-width: 768px) {
-        display: block;
-    }
-
-    img {
-        max-width: 100%;
-    }
-
-    &__text_container {
-        padding: 0 2vw;
-
-        h2 {
-            margin-bottom: 24px;
-        }
-    }
-
-    &--image-full-width {
-        display: block;
-        position: relative;
-
-        img {
-            width: 100%;
-        }
-
-        &__text_container {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            height: 100%;
-            width: calc(50% - 5.6vw);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-            @media (max-width: 768px) {
-                position: relative;
-                left: 0;
-                width: 100%;
-            }
         }
     }
 }
