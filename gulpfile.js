@@ -6,14 +6,14 @@ const uglify = require('gulp-uglify');
 function scripts() {
     return gulp.src('./src/scripts/*.js')
     .pipe(uglify())
-    .pipe(gulp.dest('./dist/js'))
+    .pipe(gulp.dest('./dist/js'));
 }
 
 
 function styles () {
     return gulp.src('./src/styles/*.scss')
     .pipe(sass({ outputStyle: 'compressed'}))
-    .pipe(gulp.dest('./dist/css'))
+    .pipe(gulp.dest('./dist/css'));
 }
 
 function images () {
